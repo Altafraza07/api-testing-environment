@@ -198,13 +198,16 @@ const TrackShipment = () => {
               </p>
               <div className="relative pl-6 space-y-5">
                 <div className="absolute left-[9px] top-1 bottom-1 w-px bg-border" />
-                {data.trackingHistory.map((evt, i) => (
+                {data.trackingHistory.map((evt, i) => {
+                  const isLatest = i === data.trackingHistory.length - 1;
+                  return (
                   <div key={i} className="relative">
-                    <div className={`absolute -left-6 top-0.5 h-[18px] w-[18px] rounded-full border-2 flex items-center justify-center ${i === 0 ? "bg-primary border-primary" : "bg-card border-border"}`}>
-                      {i === 0 && <div className="h-1.5 w-1.5 rounded-full bg-primary-foreground" />}
+                    <div className={`absolute -left-6 top-0.5 h-[18px] w-[18px] rounded-full border-2 flex items-center justify-center ${isLatest ? "bg-primary border-primary" : "bg-card border-muted-foreground/30"}`}>
+                      {isLatest && <div className="h-1.5 w-1.5 rounded-full bg-primary-foreground" />}
+                      {!isLatest && <CheckCircle2 className="h-3 w-3 text-muted-foreground/50" />}
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-foreground">{evt.status || evt.eventCode}</p>
+                      <p className={`text-sm font-medium ${isLatest ? "text-foreground" : "text-muted-foreground"}`}>{evt.status || evt.eventCode}</p>
                       <p className="text-xs text-muted-foreground">{evt.description}</p>
                       <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
                         {evt.location && (
@@ -217,7 +220,8 @@ const TrackShipment = () => {
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </Card>
           )}
