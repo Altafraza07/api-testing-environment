@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { RequestBar } from "@/components/api-tester/RequestBar";
-import { RequestConfig } from "@/components/api-tester/RequestConfig";
-import { ResponseViewer } from "@/components/api-tester/ResponseViewer";
+import { RequestBar } from "../components/api-tester/RequestBar";
+import { RequestConfig } from "../components/api-tester/RequestConfig";
+import { ResponseViewer } from "../components/api-tester/ResponseViewer";
 import {
   KeyValuePair,
   ApiResponse,
   HttpMethod,
-} from "@/components/api-tester/types";
+} from "../components/api-tester/types";
 import { Zap } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "../hooks/use-toast";
 
 const Index = () => {
   const [method, setMethod] = useState<HttpMethod>("GET");
