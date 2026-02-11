@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { getApiConfig, saveApiConfig } from "@/lib/api-config";
-import { toast } from "@/hooks/use-toast";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import { Label } from "../components/ui/label";
+import { getApiConfig, saveApiConfig } from "../lib/api-config";
+import { toast } from "../hooks/use-toast";
 import { Save, Eye, EyeOff } from "lucide-react";
 
 const SettingsPage = () => {
